@@ -40,13 +40,6 @@ describe('commitlint-config-untile', () => {
   });
 
   describe('incorrect', () => {
-    it('should return an error if the commit not start with first letter in uppercase', () => {
-      return lint('add foobar').then(result => {
-        expect(result.valid).toBe(false);
-        expect(result.errors[0].name).toEqual('function-rules/type-enum');
-      });
-    });
-
     it('should return an error if the commit not start with (Add|Bump|Fix|Improve|Release|Remove|Update)', () => {
       return lint('Foo bar').then(result => {
         expect(result.valid).toBe(false);
@@ -68,24 +61,24 @@ describe('commitlint-config-untile', () => {
       });
     });
 
-    it('should return an error if the commit has an empty space in the end', () => {
+    it('should return an error if the commit has an whitespace in the end', () => {
       return lint('Add foo ').then(result => {
         expect(result.valid).toBe(false);
         expect(result.errors[0].name).toEqual('function-rules/type-enum');
       });
     });
 
-    it('should return an error if the commit has extra spaces between words', () => {
+    it('should return an error if the commit has more than one whitespace between words', () => {
       return lint('Add  foo').then(result => {
         expect(result.valid).toBe(false);
         expect(result.errors[0].name).toEqual('function-rules/type-enum');
       });
     });
 
-    it('should return an error if the commit has non-alphanumeric characters', () => {
-      return lint('Add @foo').then(result => {
+    it('should return an error if the commit ends with full stop', () => {
+      return lint('Add foo.').then(result => {
         expect(result.valid).toBe(false);
-        expect(result.errors[0].name).toEqual('function-rules/type-enum');
+        expect(result.errors[0].name).toEqual('header-full-stop');
       });
     });
   });
