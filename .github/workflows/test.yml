@@ -15,12 +15,17 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
 
       - name: Setup node
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
         with:
           node-version: '14.17.0'
+          registry-url: 'https://npm.pkg.github.com'
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.WORKFLOW_TOKEN }}
 
       - name: Setup module dependencies cache
         uses: actions/cache@v2
@@ -36,3 +41,8 @@ jobs:
 
       - name: Test
         run: yarn test
+      
+      - name: Lint commits
+        uses: wagoid/commitlint-github-action@v4
+        with: 
+          configFile: .commitlintrc.js
