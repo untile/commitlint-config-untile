@@ -1,5 +1,9 @@
 # Changelog
 
+## [v0.1.0](https://github.com/untile/commitlint-config-untile/releases/tag/v0.1.0) (2022-04-01)
+- Add commitlint config with husky [\#4](https://github.com/untile/commitlint-config-untile/pull/4) ([rafaelcruzazevedo](https://github.com/rafaelcruzazevedo))
+- Update header rules [\#3](https://github.com/untile/commitlint-config-untile/pull/3) ([rafaelcruzazevedo](https://github.com/rafaelcruzazevedo))
+
 ## [v0.0.2](https://github.com/untile/commitlint-config-untile/releases/tag/v0.0.2) (2022-03-24)
 - Update publish workflow [\#2](https://github.com/untile/commitlint-config-untile/pull/2) ([rafaelcruzazevedo](https://github.com/rafaelcruzazevedo))
 
