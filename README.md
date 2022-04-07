@@ -24,7 +24,6 @@ module.exports = {
 - Commit header must not be longer than **52** characters.
 - Commit header must have **more than 1 word**.
 - Commit body should be in sentence-case.
-- Commit body should have a full stop.
 
 **NOTE**
 Follow the [commitlint.js.org](https://commitlint.js.org/#/guides-local-setup?id=install-husky) guide

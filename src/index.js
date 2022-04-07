@@ -24,7 +24,7 @@ module.exports = {
   plugins: ['commitlint-plugin-function-rules'],
   rules: {
     'body-case': [2, 'always', 'sentence-case'],
-    'body-full-stop': [2, 'always', '.'],
+    'body-full-stop': [0],
     'function-rules/type-enum': [2, 'always', parsed => {
       if (!parsed.header.match(regexes.typeEnum.startWith)) {
         return [false, 'The commit must start with: Add|Bump|Fix|Improve|Release|Remove|Update'];
